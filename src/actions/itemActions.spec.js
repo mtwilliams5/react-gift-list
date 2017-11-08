@@ -54,7 +54,7 @@ describe('Actions', () => {
     // then we simulate calling it with dispatch as the store would do
     itemActions.loadItems(appState)(dispatch);
     // finally assert that the dispatch was called with our expected actions
-    expect(dispatch.mock.calls[0]).toEqual(expected[0]);
+    expect(dispatch.mock.calls).toEqual(expected);
     // expect(dispatch.mock.calls[1]).toEqual(expected[1]);
   });
 
