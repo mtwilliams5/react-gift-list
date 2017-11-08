@@ -1,5 +1,5 @@
 import * as types from '../constants/actionTypes';
-import itemApi from '../api/mockItemsApi';
+import ItemApi from '../api/mockItemsApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
 export function loadItemsSuccess(items) {
@@ -9,7 +9,7 @@ export function loadItemsSuccess(items) {
 export function loadItems(state) {
   return function(dispatch) {
     dispatch(beginAjaxCall());
-    return state ? dispatch(loadItemsSuccess(state.items)) : itemApi.getAllItems().then(items => {
+    return state ? dispatch(loadItemsSuccess(state.items)) : ItemApi.getAllItems().then(items => {
       dispatch(loadItemsSuccess(items));
     }).catch(error => {
       dispatch(ajaxCallError(error));
@@ -18,14 +18,14 @@ export function loadItems(state) {
   };
 }
 
-// export function loadItemsByRequestor(requestor) {
-//   return function(dispatch) {
-//     dispatch(beginAjaxCall());
-//     return itemApi.getItemsByRequestor(requestor).then(items => {
-//       dispatch(loadItemsSuccess(items));
-//     }).catch(error => {
-//       dispatch(ajaxCallError(error));
-//       throw(error);
-//     });
-//   };
-// }
+export function loadItemsByRequestor(requestor,) {
+  return function(dispatch) {
+    dispatch(beginAjaxCall());
+    return ItemApi.getItemsByRequestor(requestor).then(items => {
+      dispatch(loadItemsSuccess(items));
+    }).catch(error => {
+      dispatch(ajaxCallError(error));
+      throw(error);
+    });
+  };
+}

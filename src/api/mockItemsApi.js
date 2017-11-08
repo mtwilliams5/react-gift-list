@@ -63,7 +63,6 @@ class ItemsApi {
             return item;
           }
         });
-        console.log(requestorItems); //eslint-disable-line no-console
         if (requestorItems) {
           resolve(Object.assign([], requestorItems));
         } else {

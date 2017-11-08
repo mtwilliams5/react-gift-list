@@ -23,7 +23,7 @@ const generateId = (requestor) => {
 };
 
 class RequestorsApi {
-  static getAllrequestors() {
+  static getAllRequestors() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(Object.assign([], requestors));
@@ -31,7 +31,7 @@ class RequestorsApi {
     });
   }
 
-  static saverequestor(requestor) {
+  static saveRequestor(requestor) {
     requestor = Object.assign({}, requestor); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -61,7 +61,7 @@ class RequestorsApi {
     });
   }
 
-  static deleterequestor(requestorId) {
+  static deleteRequestor(requestorId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const indexOfRequestorToDelete = requestors.findIndex(requestor => {

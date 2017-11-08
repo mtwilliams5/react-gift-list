@@ -1,7 +1,7 @@
 import * as types from '../constants/actionTypes';
 import * as itemActions from './itemActions';
 
-describe('Actions', () => {
+describe('Item Actions', () => {
   const appState = {
     items: [
       {
@@ -37,40 +37,85 @@ describe('Actions', () => {
     ]
   };
 
-  it('should create an action to get all list items', () => {
-    const dispatch = jest.fn();
-    const expected = [
-      [{
-        type: types.BEGIN_AJAX_CALL,
-      }],
-      [{
-        type: types.LOAD_ITEMS_SUCCESS,
-        items: appState.items
-      }]
-    ];
+  describe('loadAllItems', () => {
+    it('should create an action to get list items', () => {
+      // arrange
+      const dispatch = jest.fn();
+      const expected = [
+        [{
+          type: types.BEGIN_AJAX_CALL,
+        }],
+        [{
+          type: types.LOAD_ITEMS_SUCCESS,
+          items: appState.items
+        }]
+      ];
 
-    // we expect this to return a function since it is a thunk
-    expect(typeof (itemActions.loadItems(appState))).toEqual('function');
-    // then we simulate calling it with dispatch as the store would do
-    itemActions.loadItems(appState)(dispatch);
-    // finally assert that the dispatch was called with our expected actions
-    expect(dispatch.mock.calls).toEqual(expected);
-    // expect(dispatch.mock.calls[1]).toEqual(expected[1]);
+      // act
+      itemActions.loadItems(appState)(dispatch);
+
+      // assert
+      // we expect this to return a function since it is a thunk
+      expect(typeof (itemActions.loadItems(appState))).toEqual('function');
+
+      // finally assert that the dispatch was called with our expected actions
+      expect(dispatch.mock.calls[0][0]).toEqual(expected[0][0]);
+      expect(dispatch.mock.calls[1][0]).toEqual(expected[1][0]);
+    });
+
+    it('should return all list items', () => {
+      // arrange
+      const dispatch = jest.fn();
+      const expected = [
+        { items: appState.items }
+      ];
+
+      // act
+      itemActions.loadItems(appState)(dispatch);
+
+      // assert
+      expect(dispatch.mock.calls[0][1]).toEqual(expected[0][0]);
+    });
   });
 
-  // it('should create an action to calculate fuel savings', () => {
-  //   const fieldName = 'newMpg';
-  //   const value = 100;
-  //   const actual = ActionCreators.calculateFuelSavings(appState, fieldName, value);
-  //   const expected = {
-  //     type: ActionTypes.CALCULATE_FUEL_SAVINGS,
-  //     dateModified,
-  //     settings: appState,
-  //     fieldName,
-  //     value
-  //   };
+  // describe('loadItemsByRequestor', () => {
+  //   it('should create an action to get list items', () => {
+  //     // arrange
+  //     const dispatch = jest.fn().mockImplementation(() => Promise.resolve());
+  //     const requestor = '';
+  //     const expected = [
+  //       [{
+  //         type: types.BEGIN_AJAX_CALL
+  //       }],
+  //       [{
+  //         type: types.LOAD_ITEMS_SUCCESS
+  //       }]
+  //     ];
 
-  //   expect(actual).toEqual(expected); // Notice use of deep because it's a nested object
-  //   // expect(actual).to.equal(expected); // Fails. Not deeply equal
+  //     // act
+  //     itemActions.loadItemsByRequestor(requestor)(dispatch);
+
+  //     // assert
+  //     // we expect this to return a function since it is a thunk
+  //     expect(typeof (itemActions.loadItemsByRequestor(requestor))).toEqual('function');
+
+  //     // finally assert that the dispatch was called with our expected actions
+  //     expect(dispatch.mock.calls).toEqual(expected);
+  //     // expect(dispatch.mock.calls[1][0]).toEqual(expected[1][0]);
+  //   });
+
+  //   it('should return all list items', () => {
+  //     // arrange
+  //     const dispatch = jest.fn();
+  //     const expected = [
+  //       { items: appState.items }
+  //     ];
+
+  //     // act
+  //     itemActions.loadItems(appState)(dispatch);
+
+  //     // assert
+  //     expect(dispatch.mock.calls[0][1]).toEqual(expected[0][0]);
+  //   });
   // });
 });

@@ -2,22 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from '../../actions/itemActions';
+import * as actions from '../../actions/requestorActions';
+import RequestorList from './RequestorList.jsx';
 
 export const HomePage = (props) => {
   return (
-    <h1>Test</h1>
+    <RequestorList requestors={props.requestors}/>
   );
 };
 
 HomePage.propTypes = {
   actions: PropTypes.object.isRequired,
-  items: PropTypes.object.isRequired
+  requestors: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    items: state.items
+    requestors: state.requestors
   };
 }
 
