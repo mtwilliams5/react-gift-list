@@ -1,31 +1,78 @@
+/* ==== Google font ==== */
+@import url('//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');
+
 /* Variables */
-$vin-blue: #5bb7db;
-$vin-green: #60b044;
-$vin-red: #ff0000;
+$body-color: #333;
+$body-bg: #fff;
+$link-color: #34679E;
+$btn-skin-color: #fff;
+$btn-skin-bg: #666;
+$btn-skin-border: #666;
 
 /* Styles */
+html { height: 100%;}
 body {
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 1.4em;
-  color: #4d4d4d;
-  min-width: 230px;
-  max-width: 550px;
-  margin: 0 auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  font-weight: 300;
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-weight: 300;
+    color: $body-color;
+    background-color: $body-bg;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#container {
+    min-height: 100%;
+    position: relative;
 }
 
-td {
-	padding: 12px;
+h1,h2,h3,h4,h5,h6 {
+    margin: 0 0 30px;
+    text-transform: uppercase;
+    font-family: Montserrat,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-h2 {
-	color: $vin-blue;
+a {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+	color: $link-color;
 }
 
-.savings { color: $vin-green; }
-.loss { color: $vin-red; }
-input.small { width: 46px; }
-td.fuel-savings-label { width: 175px; }
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+/* misc */
+hr {
+  margin-top: 10px;
+}
+
+/* ===========================
+--- Elements
+============================ */
+
+.btn {
+  border-radius: 0;
+    text-transform: uppercase;
+    font-family: Montserrat,sans-serif;
+    font-weight: 400;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.btn-skin:hover,
+.btn-skin:focus,
+.btn-skin:active,
+.btn-skin.active {
+  color: $btn-skin-color;
+  background-color: $btn-skin-bg;
+  border-color: $btn-skin-border;
+}
+
+.btn-link {
+	color: $link-color !important;
+}
