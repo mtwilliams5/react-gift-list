@@ -6,8 +6,16 @@ import * as actions from '../../actions/requestorActions';
 import RequestorList from './RequestorList.jsx';
 
 export const HomePage = (props) => {
+  const requestorListClassNames = "btn-group btn-group-lg btn-group-justified";
+  const requestorListStyles = {position: 'relative', top: '40%'};
   return (
-    <RequestorList requestors={props.requestors}/>
+    <div className="container h-100">
+      <RequestorList
+        requestors={props.requestors}
+        classNames={requestorListClassNames}
+        styles={requestorListStyles}
+      />
+    </div>
   );
 };
 
