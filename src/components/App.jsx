@@ -21,7 +21,7 @@ class App extends React.Component {
         </div> */}
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/:user" component={GiftListPage} />
+          <Route path="/:requestor" component={GiftListPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>

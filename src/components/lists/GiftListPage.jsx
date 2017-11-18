@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as itemActions from '../../actions/itemActions';
+import GiftList from './GiftList.jsx';
+import Header from '../common/Header.jsx';
 import toastr from 'toastr';
 
 class GiftListPage extends React.Component {
@@ -13,9 +15,8 @@ class GiftListPage extends React.Component {
   render() {
     return (
       <div>
-        {
-          //jsx here
-        }
+        <Header requestors={this.props.requestors}/>
+        <GiftList items={this.props.items}/>
       </div>
     );
   }
@@ -23,16 +24,34 @@ class GiftListPage extends React.Component {
 
 GiftListPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired,
-  requestorId: PropTypes.string.isRequired
+  requestor: PropTypes.object.isRequired,
+  items: PropTypes.array
 };
 
+function getRequestorById(requestors, id) {
+  const requestor = requestors.filter(requestor => requestor.id == id);
+  if (requestor.length) return requestor[0];
+  return null;
+}
+
+function getItemsByRequestor(allItems, requestor) {
+  const requestorItems = allItems.filter(item => item.requestorId == requestor.id);
+  if (requestorItems.length) return requestorItems;
+  return [];
+}
+
 function mapStateToProps(state, ownProps) {
-  const requestorId = ownProps.params.id;
+  const requestorId = ownProps.match.params.requestor;
+
+  let requestor = {id: '', firstName: '', lastName: ''};
+  if(requestorId && state.requestors.length > 0) {
+    requestor = getRequestorById(state.requestors, requestorId)
+  }
 
   return {
-    items: state.items,
-    requestorId: requestorId
+    requestor,
+    requestors: state.requestors,
+    items: getItemsByRequestor(state.items, requestor)
   };
 }
 
