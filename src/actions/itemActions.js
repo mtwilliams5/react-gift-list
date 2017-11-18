@@ -6,22 +6,10 @@ export function loadItemsSuccess(items) {
   return { type: types.LOAD_ITEMS_SUCCESS, items };
 }
 
-export function loadItems(state) {
+export function loadItems() {
   return function(dispatch) {
     dispatch(beginAjaxCall());
-    return state ? dispatch(loadItemsSuccess(state.items)) : ItemApi.getAllItems().then(items => {
-      dispatch(loadItemsSuccess(items));
-    }).catch(error => {
-      dispatch(ajaxCallError(error));
-      throw(error);
-    });
-  };
-}
-
-export function loadItemsByRequestor(requestor) {
-  return function(dispatch) {
-    dispatch(beginAjaxCall());
-    return ItemApi.getItemsByRequestor(requestor).then(items => {
+    return ItemApi.getAllItems().then(items => {
       dispatch(loadItemsSuccess(items));
     }).catch(error => {
       dispatch(ajaxCallError(error));

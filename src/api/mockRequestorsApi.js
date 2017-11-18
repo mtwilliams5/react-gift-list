@@ -14,6 +14,11 @@ const requestors = [
     id: "natasha-warnock",
     firstName: "Natasha",
     lastName: "Warnock"
+  },
+  {
+    id: "joint-house-stuff",
+    firstName: "Joint",
+    lastName: "House Stuff"
   }
 ];
 

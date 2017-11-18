@@ -12,7 +12,6 @@ const items = [
     requestorId: "matt-williams",
     url: "https://www.amazon.co.uk/PlayStation-9827054-Sony-VR/dp/B076BTTZCG?th=1",
     claimed: false,
-    claimedBy: "",
     lastUpdated: ""
   },
   {
@@ -22,17 +21,24 @@ const items = [
     requestorId: "matt-williams",
     url: "https://www.amazon.co.uk/Rockstar-Games-NS66976-Nintendo-Switch/dp/B075KFVY1V",
     claimed: false,
-    claimedBy: "",
     lastUpdated: ""
   },
   {
     id: "funny-apron-and-oven-mitts",
     title: "Funny Apron and Oven Mitts",
     extraInfo: "",
+    requestorId: "joint-house-stuff",
+    url: "",
+    claimed: false,
+    lastUpdated: ""
+  },
+  {
+    id: "niche",
+    title: "Niche",
+    extraInfo: "PC Game",
     requestorId: "natasha-warnock",
     url: "",
     claimed: false,
-    claimedBy: "",
     lastUpdated: ""
   }
 ];
@@ -51,23 +57,6 @@ class ItemsApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(Object.assign([], items));
-      }, delay);
-    });
-  }
-
-  static getItemsByRequestor(requestor) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        let requestorItems = items.map((item) => {
-          if (item.requestorId == requestor.id) {
-            return item;
-          }
-        });
-        if (requestorItems) {
-          resolve(Object.assign([], requestorItems));
-        } else {
-          reject(`No list items found for requestor ${requestor.firstName} ${requestor.lastName}.`);
-        }
       }, delay);
     });
   }
