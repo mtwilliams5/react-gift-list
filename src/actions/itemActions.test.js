@@ -77,45 +77,4 @@ describe('Item Actions', () => {
       expect(dispatch.mock.calls[0][1]).toEqual(expected[0][0]);
     });
   });
-
-  // describe('loadItemsByRequestor', () => {
-  //   it('should create an action to get list items', () => {
-  //     // arrange
-  //     const dispatch = jest.fn().mockImplementation(() => Promise.resolve());
-  //     const requestor = '';
-  //     const expected = [
-  //       [{
-  //         type: types.BEGIN_AJAX_CALL
-  //       }],
-  //       [{
-  //         type: types.LOAD_ITEMS_SUCCESS
-  //       }]
-  //     ];
-
-  //     // act
-  //     itemActions.loadItemsByRequestor(requestor)(dispatch);
-
-  //     // assert
-  //     // we expect this to return a function since it is a thunk
-  //     expect(typeof (itemActions.loadItemsByRequestor(requestor))).toEqual('function');
-
-  //     // finally assert that the dispatch was called with our expected actions
-  //     expect(dispatch.mock.calls).toEqual(expected);
-  //     // expect(dispatch.mock.calls[1][0]).toEqual(expected[1][0]);
-  //   });
-
-  //   it('should return all list items', () => {
-  //     // arrange
-  //     const dispatch = jest.fn();
-  //     const expected = [
-  //       { items: appState.items }
-  //     ];
-
-  //     // act
-  //     itemActions.loadItems(appState)(dispatch);
-
-  //     // assert
-  //     expect(dispatch.mock.calls[0][1]).toEqual(expected[0][0]);
-  //   });
-  // });
 });

@@ -18,7 +18,7 @@ export function loadItems(state) {
   };
 }
 
-export function loadItemsByRequestor(requestor,) {
+export function loadItemsByRequestor(requestor) {
   return function(dispatch) {
     dispatch(beginAjaxCall());
     return ItemApi.getItemsByRequestor(requestor).then(items => {
