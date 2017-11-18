@@ -6,7 +6,7 @@ const Header = ({requestors}) => {
   return (
     <ul className="nav nav-pills nav-justified">
       {requestors.map(requestor =>
-        <li>
+        <li key={requestor.id}>
           <NavLink exact to={'/' + requestor.id}>{requestor.firstName}</NavLink>
         </li>
       )}
