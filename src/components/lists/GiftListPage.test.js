@@ -5,9 +5,7 @@ import GiftListPage from './GiftListPage.jsx';
 
 function setup() {
   const props = {
-    params: {
-      id: 'matt-williams'
-    },
+    requestorId: 'matt-williams',
     items: [
       {
         id: "playstation-vr",
