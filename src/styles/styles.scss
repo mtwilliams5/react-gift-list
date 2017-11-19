@@ -35,9 +35,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 	color: $link-color;
 }
 
@@ -96,10 +96,17 @@ hr {
 .w-50 { width: 50% !important; }
 .w-25 { width: 25% !important; }
 
-.nav a.active, .nav a.active:hover, .nav a.active:visited {
-  background-color: #ccc;
+.nav {
+  a.active, a.active:hover, a.active:visited {
+    background-color: #ccc;
+  }
 }
 
 .claimed {
   text-decoration: line-through;
+  color: rgba( $body-color, .5 );
+
+  small {
+    color: rgba( $body-color, .3);
+  }
 }
