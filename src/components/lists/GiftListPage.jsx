@@ -10,13 +10,37 @@ import toastr from 'toastr';
 class GiftListPage extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    this.state = {
+      items: Object.assign({}, this.props.items)
+    };
+
+    this.claimItem = this.claimItem.bind(this);
+  }
+
+  claimItem(event) {
+    event.preventDefault();
+    let itemId = event.target.getAttribute('data-itemid');
+    let item = getItemById(this.props.items, itemId);
+    if(item.claimed) {
+      toastr.error('Item is claimed already');
+      return;
+    }
+    const claimedItem = Object.assign({}, item, {
+      claimed: true
+    });
+    this.props.actions.updateItem(claimedItem)
+      .then(toastr.success('Item marked as claimed!'))
+      .catch(error => {
+        toastr.error(error);
+      });
   }
 
   render() {
     return (
       <div>
         <Header requestors={this.props.requestors}/>
-        <GiftList items={this.props.items}/>
+        <GiftList items={this.props.items} onClick={this.claimItem} />
       </div>
     );
   }
@@ -38,6 +62,12 @@ function getItemsByRequestor(allItems, requestor) {
   const requestorItems = allItems.filter(item => item.requestorId == requestor.id);
   if (requestorItems.length) return requestorItems;
   return [];
+}
+
+function getItemById(items, id) {
+  const item = items.filter(item => item.id == id);
+  if (item.length) return item[0];
+  return null;
 }
 
 function mapStateToProps(state, ownProps) {

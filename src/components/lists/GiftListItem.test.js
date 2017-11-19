@@ -79,5 +79,5 @@ describe('GiftListItem', () => {
     expect(wrapper.find('li').hasClass('claimed')).toBe(true);
     expect(wrapper.find('small').length).toBe(0);
     expect(wrapper.find('a').length).toBe(0);
-  })
+  });
 });

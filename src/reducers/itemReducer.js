@@ -6,6 +6,12 @@ export default function itemReducer(state = initialState.items, action) {
     case types.LOAD_ITEMS_SUCCESS:
       return action.items;
 
+    case types.UPDATE_ITEM_SUCCESS:
+      return [
+        ...state.filter(item => item.id !== action.item.id),
+        Object.assign({}, action.item)
+      ];
+
     default:
       return state;
   }
