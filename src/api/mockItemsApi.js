@@ -20,7 +20,7 @@ const items = [
     extraInfo: "Nintendo Switch",
     requestorId: "matt-williams",
     url: "https://www.amazon.co.uk/Rockstar-Games-NS66976-Nintendo-Switch/dp/B075KFVY1V",
-    claimed: false,
+    claimed: true,
     lastUpdated: ""
   },
   {
