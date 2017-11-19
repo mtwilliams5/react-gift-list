@@ -20,7 +20,7 @@ const items = [
     extraInfo: "Nintendo Switch",
     requestorId: "matt-williams",
     url: "https://www.amazon.co.uk/Rockstar-Games-NS66976-Nintendo-Switch/dp/B075KFVY1V",
-    claimed: true,
+    claimed: false,
     lastUpdated: ""
   },
   {
@@ -36,6 +36,60 @@ const items = [
     id: "niche",
     title: "Niche",
     extraInfo: "PC Game",
+    requestorId: "natasha-warnock",
+    url: "",
+    claimed: false,
+    lastUpdated: ""
+  },
+  {
+    id: "origins",
+    title: "Origins",
+    extraInfo: "by Dan Brown",
+    requestorId: "matt-williams",
+    url: "",
+    claimed: false,
+    lastUpdated: ""
+  },
+  {
+    id: "street-fighter-2",
+    title: "Street Fighter 2",
+    extraInfo: "Nintendo Switch",
+    requestorId: "joint-house-stuff",
+    url: "",
+    claimed: false,
+    lastUpdated: ""
+  },
+  {
+    id: "beer-stein",
+    title: "Beer Stein",
+    extraInfo: "",
+    requestorId: "matt-williams",
+    url: "",
+    claimed: false,
+    lastUpdated: ""
+  },
+  {
+    id: "dragon-ball-super-season-1",
+    title: "Dragon Ball Super Season 1",
+    extraInfo: "Blu-Ray",
+    requestorId: "joint-house-stuff",
+    url: "",
+    claimed: false,
+    lastUpdated: ""
+  },
+  {
+    id: "japanese-sake-cup-set",
+    title: "Japanese Sake Cup Set",
+    extraInfo: "",
+    requestorId: "natasha-warnock",
+    url: "https://www.amazon.co.uk/dp/B01J1TWSMS/_encoding=UTF8?coliid=IGQCL9NEK3CUX&colid=31OW834ZOHF8K",
+    claimed: false,
+    lastUpdated: ""
+  },
+  {
+    id: "helsing-ultimate-vol-9-and-10",
+    title: "Helsing Ultimate Vol 9 and 10",
+    extraInfo: "Blu-Ray",
     requestorId: "natasha-warnock",
     url: "",
     claimed: false,
