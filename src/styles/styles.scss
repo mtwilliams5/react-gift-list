@@ -38,12 +38,27 @@ a {
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
-	color: $link-color;
+  color: $link-color;
+
+  &:hover,
+  &:focus {
+      text-decoration: none;
+  }
 }
 
-a:hover,
-a:focus {
-    text-decoration: none;
+.nav {
+  a.active, a.active:hover, a.active:visited {
+    background-color: #ccc;
+  }
+}
+
+.claimed {
+  text-decoration: line-through;
+  color: rgba( $body-color, .5 );
+
+  small {
+    color: rgba( $body-color, .3);
+  }
 }
 
 /* misc */
@@ -65,13 +80,15 @@ hr {
     transition: all .3s ease-in-out;
 }
 
-.btn-skin:hover,
-.btn-skin:focus,
-.btn-skin:active,
-.btn-skin.active {
-  color: $btn-skin-color;
-  background-color: $btn-skin-bg;
-  border-color: $btn-skin-border;
+.btn-skin {
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $btn-skin-color;
+    background-color: $btn-skin-bg;
+    border-color: $btn-skin-border;
+  }
 }
 
 .btn-link {
@@ -95,18 +112,3 @@ hr {
 .w-75 { width: 75% !important; }
 .w-50 { width: 50% !important; }
 .w-25 { width: 25% !important; }
-
-.nav {
-  a.active, a.active:hover, a.active:visited {
-    background-color: #ccc;
-  }
-}
-
-.claimed {
-  text-decoration: line-through;
-  color: rgba( $body-color, .5 );
-
-  small {
-    color: rgba( $body-color, .3);
-  }
-}
