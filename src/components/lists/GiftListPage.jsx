@@ -21,11 +21,22 @@ class GiftListPage extends React.Component {
 
   claimItem(event) {
     event.preventDefault();
-    let itemId = event.target.getAttribute('data-itemid');
-    let item = getItemById(this.props.items, itemId);
+    const itemId = event.target.getAttribute('data-itemid');
+    const item = getItemById(this.props.items, itemId);
     if(item.claimed) {
-      toastr.error('Item is claimed already');
-      return;
+      if (!confirm('Are you sure you want to mark this item as available again?')) {
+        return;
+      } else {
+        const unclaimedItem = Object.assign({}, item, {
+          claimed: false
+        });
+        this.props.actions.updateItem(unclaimedItem)
+          .then(toastr.success('Item marked as available!'))
+          .catch(error => {
+            toastr.error(error);
+          });
+        return;
+      }
     }
     const claimedItem = Object.assign({}, item, {
       claimed: true
