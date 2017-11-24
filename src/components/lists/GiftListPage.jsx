@@ -40,7 +40,7 @@ class GiftListPage extends React.Component {
     return (
       <div>
         <Header requestors={this.props.requestors}/>
-        <GiftList items={this.props.items} onClick={this.claimItem} />
+        <GiftList items={this.props.items} claimItem={this.claimItem} />
       </div>
     );
   }
