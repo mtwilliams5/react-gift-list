@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import HomePage from './home/HomePage.jsx';
 import GiftListPage from './lists/GiftListPage.jsx';
+import ManageListPage from './manage/ManageListPage.jsx';
+import ManageItemPage from './manage/ManageItemPage.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 
 // This is a class-based component because the current
@@ -21,6 +23,8 @@ class App extends React.Component {
         </div> */}
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/manage/list/:requestor" component={ManageListPage} />
+          <Route path="/manage/item/:item" name="manageItem" component={ManageItemPage} />
           <Route path="/:requestor" component={GiftListPage} />
           <Route component={NotFoundPage} />
         </Switch>

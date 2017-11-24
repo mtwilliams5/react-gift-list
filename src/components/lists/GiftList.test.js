@@ -15,7 +15,7 @@ function setup() {
         title: "LA Noire"
       }
     ],
-    claimItem: () => { /*no-op*/ }
+    clickEvent: () => { /*no-op*/ }
   };
 
   return shallow(<GiftList {...props} />);

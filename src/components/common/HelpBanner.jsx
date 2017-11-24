@@ -20,4 +20,8 @@ const HelpBanner = () => {
   );
 }
 
+HelpBanner.propTypes = {
+  onClick: PropTypes.func.isRequired
+}
+
 export default HelpBanner;

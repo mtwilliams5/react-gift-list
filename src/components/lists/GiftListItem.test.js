@@ -12,7 +12,7 @@ function setup(extraInfo = "", url = "", claimed = false) {
       url,
       claimed
     },
-    claimItem: () => { /*no-op*/ }
+    clickEvent: () => { /*no-op*/ }
   };
 
   return shallow(<GiftListItem {...props} />);
