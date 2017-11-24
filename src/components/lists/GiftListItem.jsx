@@ -17,7 +17,8 @@ const GiftListItem = ({item, claimItem}) => {
 }
 
 GiftListItem.propTypes = {
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
+  claimItem: PropTypes.func.isRequired
 };
 
 export default GiftListItem;

@@ -14,7 +14,8 @@ function setup() {
         id: "la-noire",
         title: "LA Noire"
       }
-    ]
+    ],
+    claimItem: () => { /*no-op*/ }
   };
 
   return shallow(<GiftList {...props} />);
