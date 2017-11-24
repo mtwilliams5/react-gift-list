@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as itemActions from '../../actions/itemActions';
 import GiftList from './GiftList.jsx';
 import Header from '../common/Header.jsx';
+import HelpBanner from '../common/HelpBanner.jsx';
 import toastr from 'toastr';
 
 class GiftListPage extends React.Component {
@@ -40,7 +41,10 @@ class GiftListPage extends React.Component {
     return (
       <div>
         <Header requestors={this.props.requestors}/>
-        <GiftList items={this.props.items} claimItem={this.claimItem} />
+        <div className="container" style={{padding: '1rem', marginTop: '3rem'}}>
+          <HelpBanner />
+          <GiftList items={this.props.items} claimItem={this.claimItem} />
+        </div>
       </div>
     );
   }
